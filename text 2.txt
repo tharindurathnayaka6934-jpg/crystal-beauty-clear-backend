@@ -1,0 +1,59 @@
+function getAllStudents(password){
+    const  p=new Promise(
+        (reslove,reject)=>{
+            if(password=="abc"){
+                setTimeout( ()=>{
+                    reslove([
+                        {
+                            name:"Tharindu",
+                            age:18
+                        },
+                        {
+                            name:"Thivanka",
+                            age:17
+                        },
+                        {
+                            name:"Dilshan",
+                            age:19
+                        } 
+                    ])
+            },5000)
+            }else{
+                setTimeout( ()=>{
+                    reject("Invalid password")
+                },5000)
+            }    
+        }
+    )
+    
+    return p
+}
+
+getAllStudents("abc").then(
+    (res)=>{
+        console.log(res)
+    }    
+).catch(
+    (err)=>{
+        console.log(err)
+    }    
+)
+
+/* const data = await getAllStudents("abc")
+    task 1 of await: start Promise
+    task 1 of await: stuck in this line
+    task 1 of await: data that comes in function put to variable
+
+console.log(data)
+
+but we can use await keyword only in async functions   
+
+async function run(){
+    try{
+        const data = await getAllStudents("abc")
+    }catch(err){
+        console.log(err)
+}
+*/
+
+

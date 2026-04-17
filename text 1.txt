@@ -1,0 +1,36 @@
+const connectionStatus=true;
+
+const promise=new Promise(
+    (resolve,reject)=>{
+        console.log("Connection to database");
+        console.log("Authentication......");
+        
+            if(connectionStatus){
+                setTimeout( ()=> {
+                    console.log("Student saved");
+                    
+                    
+                    resolve("Malith")
+                }, 5000);
+            }else{
+                setTimeout( ()=> {
+                    console.log("Student could not be saved");
+                    
+                    
+                    reject("Connection status unsuccessful")
+                }, 5000);
+            }
+        }
+    );
+    
+promise.then(
+    (res)=>{
+        console.log(res)
+        console.log("Promise is fullfiled")
+    }    
+).catch(
+    (err)=>{
+        console.log(err)
+        console.log("Promise is unfullfiled")
+    }
+)
